@@ -347,8 +347,12 @@ def soltar_carta(cartas: list, mesa: list, turno_jugador, ultimo):
 
 # observar reglas de juego
 def ver_reglas():
-    print("Acá veremos las reglas de caida")
-    input()
+    print("En el siguiente enlace podrá consultar las reglas del juego:\n")
+    print(
+        "https://steemit.com/spanish/@joriangel/juego-de-cartas-caida-explicado-venezuela"
+    )
+
+    input("Presione enter para continuar.")
     os.system("cls")
 
 
