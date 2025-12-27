@@ -84,11 +84,32 @@ def juego():
     os.system("cls")
     while puntos_j1 <= Puntos_para_ganar and puntos_j2 <= Puntos_para_ganar:
 
-        for _ in range(0, 6):
-            print(f"puntuacion del j1: {puntos_j1}")
-            print(f"puntuacion del j2: {puntos_j2}")
-            print()
-            print(f"mesa:{mesa}")
+        for ronda in range(0, 6):
+            print("♦" * 60)
+            print(f"                     RONDA {ronda+1}/6")
+            print("♦" * 60 + "\n")
+            print("╔════════════════════════════════════════════════════╗")
+            print("║                    PUNTUACIONES                    ║")
+            print("╠════════════════════════════════════════════════════╣")
+            print(
+                f"║   Jugador 1: {puntos_j1} puntos"
+                + " " * (29 - len(str(puntos_j1)))
+                + "  ║"
+            )
+            print(
+                f"║   Jugador 2: {puntos_j2} puntos"
+                + " " * (29 - len(str(puntos_j2)))
+                + "  ║"
+            )
+            print("╚════════════════════════════════════════════════════╝\n")
+
+            if mesa:
+                print(f"│  {mesa}                                     │")
+            else:
+                print("│               🃏  Mesa vacía  🃏              │")
+
+            print("└────────────────────────────────────────────────────┘\n")
+            print("─" * 60)
 
             if turno_jugador:
                 turno_jugador, ultimo_en_tomar = soltar_carta(
@@ -96,7 +117,10 @@ def juego():
                 )
                 # verificar si el jugador limpio la mesa, si es asi gana 4 puntos
                 if len(mesa) == 0:
-                    print("El jugador 1 se ha llevado la mesa !!!")
+                    print("\n" + "!" * 60)
+                    print("   ¡¡¡ EL JUGADOR 1 SE HA LLEVADO LA MESA !!!")
+                    print("   ¡¡¡ +4 PUNTOS !!!")
+                    print("!" * 60)
                     time.sleep(3)
                     puntos_j1 += 4
 
@@ -106,7 +130,10 @@ def juego():
                 )
 
                 if len(mesa) == 0:
-                    print("El jugador 2 se ha llevado la mesa !!!")
+                    print("\n" + "!" * 60)
+                    print("   ¡¡¡ EL JUGADOR 2 SE HA LLEVADO LA MESA !!!")
+                    print("   ¡¡¡ +4 PUNTOS !!!")
+                    print("!" * 60)
                     time.sleep(3)
                     puntos_j2 += 4
                 if puntos_j1 >= Puntos_para_ganar or puntos_j2 >= Puntos_para_ganar:
@@ -141,9 +168,11 @@ def juego():
 
         if puntos_j1 >= Puntos_para_ganar and puntos_j1 > puntos_j2:
             print(f"Ha ganado el jugador 1 con:{puntos_j1} puntos.")
+            time.sleep(3)
 
         else:
             print(f"Ha ganado el jugador 2 con:{puntos_j2} puntos.")
+            time.sleep(3)
 
 
 def poner_mesa(baraja: list, turno_jugador):
@@ -422,7 +451,7 @@ def mostrar_menu():
             case "1":
                 os.system("cls")
                 print("║                                                    ║")
-                print("║    🎯 Iniciando partida...                        ║")
+                print("║    🎯 Iniciando partida...                         ║")
                 print("╚════════════════════════════════════════════════════╝")
                 time.sleep(1)
                 juego()
@@ -430,14 +459,14 @@ def mostrar_menu():
                 ver_reglas()
             case "3":
                 print("║                                                    ║")
-                print("║    👋 Gracias por jugar a Caída!                  ║")
+                print("║    👋 Gracias por jugar a Caída!                   ║")
                 print("║                                                    ║")
                 print("╚════════════════════════════════════════════════════╝")
                 time.sleep(2)
                 exit()
             case _:
                 print("║                                                    ║")
-                print("║    ❌ Opción no válida. Intente de nuevo.         ║")
+                print("║    ❌ Opción no válida. Intente de nuevo.          ║")
                 print("╚════════════════════════════════════════════════════╝")
                 time.sleep(1.5)
 
