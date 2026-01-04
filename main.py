@@ -377,9 +377,7 @@ def soltar_carta(cartas: list, mesa: list, turno_jugador, ultimo):
 # observar reglas de juego
 def ver_reglas():
     print("En el siguiente enlace podrá consultar las reglas del juego:\n")
-    print(
-        "https://steemit.com/spanish/@joriangel/juego-de-cartas-caida-explicado-venezuela"
-    )
+    print("https://caida-2026.web.app")
 
     input("Presione enter para continuar.")
     os.system("cls")
